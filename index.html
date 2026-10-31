@@ -1,251 +1,39 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f8d8e8">
-<meta name="description" content="LOVE.exe — una comunidad de idols para conectar, jugar y crear amistades.">
-<title>LOVE.exe — Idol Network ♡</title>
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8d9eb"><title>LOVE.exe ♡</title>
 <style>
-:root{
-  --pink:#f5c5dc;--pink2:#ffe8f2;--lav:#d9cdf7;--blue:#c8e8fa;
-  --ink:#302738;--muted:#796c7d;--white:#fffaff;--line:#e8d5e4;
-  --shadow:0 12px 30px #9c6c9120;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- margin:0;color:var(--ink);font-family:Tahoma,Verdana,Arial,sans-serif;
- background:
- radial-gradient(ellipse at 10% 5%,#ffe5f0 0,transparent 34%),
- radial-gradient(ellipse at 90% 20%,#e5ddff 0,transparent 32%),
- #fff9fd;
-}
-button,a{font:inherit}
-a{color:inherit}
-button{cursor:pointer}
-.wrap{width:min(1100px,92%);margin:auto}
-.topbar{padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-weight:900;letter-spacing:1px;font-size:1.15rem}
-.brand span{color:#c04d8b}
-.status{font-size:.75rem;color:#6f5875;background:#fff9;padding:8px 12px;border:1px solid var(--line);border-radius:99px}
-nav{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 24px}
-nav a{text-decoration:none;font-size:.82rem;font-weight:700;padding:10px 13px;border:1px solid var(--line);border-radius:12px;background:#ffffffb8}
-nav a:hover{background:var(--pink2);transform:translateY(-1px)}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch}
-.window{background:#ffffffdc;border:1px solid #e7cfe0;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
-.windowbar{display:flex;align-items:center;gap:7px;background:linear-gradient(90deg,var(--pink2),#eee8ff);padding:12px 15px;border-bottom:1px solid var(--line);font-size:.78rem}
-.dot{width:9px;height:9px;border-radius:50%;background:#ee91b9}.dot:nth-child(2){background:#c8a9f5}.dot:nth-child(3){background:#9fd9ed}
-.windowtitle{margin-left:auto;color:#795c79}
-.hero-copy{padding:clamp(24px,5vw,48px)}
-.eyebrow{font-size:.76rem;letter-spacing:2px;color:#b14e83;font-weight:800}
-h1{font-size:clamp(2.7rem,7vw,5.2rem);line-height:.95;letter-spacing:-3px;margin:14px 0}
-h1 span{color:#c14e91;text-shadow:3px 3px 0 #f8d6e8}
-.lead{line-height:1.7;color:#6e6074;max-width:580px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
-.btn.primary{background:#d66da5;color:white;box-shadow:0 5px 0 #b34f85}
-.btn.secondary{background:#f0e8fb;color:#604a7e;border:1px solid #e1d3f3}
-.btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
-.hero-side{padding:22px;display:flex;flex-direction:column;gap:14px}
-.big-heart{min-height:175px;border-radius:17px;background:linear-gradient(135deg,#f8d0e4,#e3d8ff 60%,#d4effb);display:grid;place-items:center;position:relative;overflow:hidden}
-.pixelheart{font-size:5.5rem;filter:drop-shadow(0 7px 0 #b96b9d40);animation:float 3s ease-in-out infinite}
-.spark{position:absolute;font-size:1.4rem;color:#fff}
-.spark.s1{top:18%;left:18%}.spark.s2{right:17%;top:25%}.spark.s3{bottom:15%;left:25%}
-@keyframes float{50%{transform:translateY(-7px) rotate(-3deg)}}
-.mini-status{background:#fff9;border:1px dashed #dfbdd5;border-radius:13px;padding:14px;font-size:.84rem;line-height:1.8}
-.mini-status strong{color:#b34f85}
-section{padding:34px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:17px}
-.section-head h2{font-size:clamp(1.5rem,4vw,2rem);margin:0}
-.section-head p{margin:5px 0 0;color:var(--muted);font-size:.9rem}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{background:#ffffffd9;border:1px solid var(--line);border-radius:17px;padding:19px;box-shadow:0 7px 20px #9c6c9110}
-.card .icon{font-size:1.8rem}
-.card h3{margin:10px 0 7px;font-size:1.05rem}
-.card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.6}
-.pill{display:inline-block;font-size:.7rem;background:#f9e5f0;color:#a14377;border-radius:99px;padding:5px 8px;margin-top:12px;font-weight:800}
-.tools{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.tool-card{padding:0}
-.tool-body{padding:20px}
-.tool-body p{color:var(--muted);line-height:1.6;font-size:.9rem}
-.result{margin-top:14px;background:#fff1f8;border:1px dashed #e5a8cb;padding:14px;border-radius:12px;min-height:65px;line-height:1.6}
-.result strong{display:block;margin-bottom:4px}
-.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.btn.small{padding:10px 12px;font-size:.85rem}
-select,input{max-width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink)}
-.wide{width:100%}
-.join{background:linear-gradient(120deg,#fbe0ed,#eee7ff,#e2f4fc);border:1px solid #e5d4e8;border-radius:20px;padding:clamp(22px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:20px}
-.join h2{margin:0 0 8px}.join p{margin:0;color:#6e6074;line-height:1.6}
-footer{text-align:center;color:#8b7a8d;font-size:.78rem;padding:30px 0 38px}
-footer b{color:#bd5d94}
-.note{font-size:.78rem!important}
-@media(max-width:760px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.tools{grid-template-columns:1fr}.hero-side{padding:16px}.join{align-items:flex-start;flex-direction:column}nav{gap:6px}nav a{font-size:.75rem;padding:9px}}
-@media(max-width:440px){.grid{grid-template-columns:1fr}.status{font-size:.68rem}.brand{font-size:1rem}h1{letter-spacing:-2px}}
-</style>
-</head>
-<body>
-<header class="wrap">
-  <div class="topbar">
-    <div class="brand">♡ <span>LOVE</span>.exe</div>
-    <div class="status">● SYSTEM ONLINE</div>
-  </div>
-  <nav aria-label="Navegación principal">
-    <a href="#home">⌂ HOME.exe</a><a href="#about">♡ ABOUT</a><a href="#play">✧ PLAY.exe</a><a href="#alarm">💌 ALARM.exe</a><a href="#join">↗ JOIN US</a>
-  </nav>
-</header>
-
+:root{--ink:#39283e;--muted:#806b84;--pink:#f8d9eb;--lav:#e8e0ff;--blue:#def4ff;--line:#ead7e7;--white:#fffaff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:system-ui,sans-serif;line-height:1.55;background:radial-gradient(circle at 10% 0,#ffe4f2,transparent 27rem),radial-gradient(circle at 100% 25%,#e9e3ff,transparent 28rem),#fff9fd}a{color:inherit;text-decoration:none}button,.btn{font:inherit;font-weight:750;color:var(--ink);background:linear-gradient(135deg,#fff,#ffedf7);border:1px solid #e8c8de;border-radius:13px;padding:10px 14px;box-shadow:0 4px 0 #edd7e7;cursor:pointer}button:active{transform:translateY(2px);box-shadow:0 2px 0 #edd7e7}.wrap{width:min(1050px,calc(100% - 24px));margin:auto}.top{background:#39283e;color:white;text-align:center;padding:8px;font-size:.78rem;letter-spacing:.1em}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;padding:24px 0}.panel,.card,.profile{background:#ffffffdc;border:1px solid var(--line);border-radius:22px;padding:clamp(17px,3vw,27px);box-shadow:0 10px 25px #805b7915}.brand{font-weight:850;letter-spacing:.12em;color:#b05288}.logo{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--pink),var(--lav));font-size:1.3rem;margin-right:7px}h1{font-size:clamp(2.8rem,8vw,5rem);line-height:.96;letter-spacing:-.07em;margin:20px 0 12px}h1 span{color:#d66ba7}.muted{color:var(--muted)}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.pill{font-size:.78rem;padding:4px 9px;border:1px solid var(--line);border-radius:99px;background:#fff4fa}.heroSide{background:linear-gradient(145deg,#f9dced,#e8e1ff,#def4ff);display:flex;flex-direction:column;justify-content:space-between;min-height:220px}.status{background:#ffffffa8;border-radius:99px;padding:6px 10px;font-size:.8rem;width:max-content}.heroSide h2{font-size:1.8rem;line-height:1.15}nav{position:sticky;top:0;z-index:5;background:#fffaf2ed;border-block:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;gap:5px;overflow:auto;padding:8px 0;scrollbar-width:none}.nav a{white-space:nowrap;padding:8px 11px;border-radius:11px;font-weight:700;font-size:.88rem}.nav a:hover{background:#ffedf7}section{padding:23px 0;scroll-margin-top:70px}.head{margin-bottom:13px}.eyebrow{font-size:.73rem;letter-spacing:.14em;text-transform:uppercase;color:#b05288;font-weight:850}h2{margin:3px 0;font-size:clamp(1.55rem,4vw,2.1rem);letter-spacing:-.04em}h3{margin:0 0 5px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{padding:18px}.icon{font-size:1.65rem}.card p,.profile p{font-size:.92rem;color:var(--muted)}.pink{background:linear-gradient(135deg,#fff,#fff0f7)}.lav{background:linear-gradient(135deg,#fff,#f0ecff)}.blue{background:linear-gradient(135deg,#fff,#e8f8ff)}.result{margin-top:10px;border:1px dashed #d9b9d5;border-radius:13px;padding:12px;background:#fff7fc;min-height:52px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.small{font-size:.84rem;padding:8px 10px}.profiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.profile{padding:17px;overflow-wrap:anywhere}.avatar{display:grid;place-items:center;width:54px;height:54px;background:linear-gradient(135deg,var(--pink),var(--lav));border-radius:17px;font-size:1.6rem;margin-bottom:9px}.role{display:inline-block;background:#fbedf6;border-radius:99px;padding:3px 8px;font-size:.76rem}.formbox{background:#fff5fb;border:1px dashed #dcbdd4;border-radius:18px;padding:15px;margin-top:13px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:.82rem;font-weight:750}input,select,textarea{width:100%;font:inherit;border:1px solid #e1cddd;border-radius:11px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:75px}.full{grid-column:1/-1}.notice{font-size:.83rem;color:var(--muted);background:#f5f0ff;padding:11px;border-radius:12px}.hidden{display:none!important}footer{text-align:center;padding:30px 0 42px;color:var(--muted);font-size:.84rem}@media(max-width:700px){.hero{grid-template-columns:1fr}.grid,.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.grid,.profiles,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding-top:14px}.heroSide{min-height:180px}}
+</style></head><body>
+<div class="top">♡ WELCOME TO LOVE.exe // FRIENDSHIP LOADING... ♡</div>
+<header class="wrap hero"><div class="panel"><div class="brand"><span class="logo">♡</span> LOVE.exe · TEAM HUB</div><h1>Love is<br><span>online.</span></h1><p class="muted">Un rincón digital para conocernos, jugar, compartir momentos y hacer que la comunidad se sienta como un lugar seguro.</p><div class="pills"><span class="pill">♡ amistad</span><span class="pill">✦ actividades</span><span class="pill">⌁ Y2K webcore</span></div><a class="btn" href="#comunidad">Entrar al team ♡</a></div><div class="panel heroSide"><span class="status">● SYSTEM ONLINE</span><div><h2>Tu espacio.<br>Tu gente. Tu vibe.</h2><p>Conexiones bonitas, actividades y recuerdos compartidos.</p></div><span class="status">VERSION 2.0 · BETA</span></div></header>
+<nav><div class="wrap nav"><a href="#inicio">⌂ Inicio</a><a href="#comunidad">♡ Comunidad</a><a href="#perfiles">☻ Perfiles</a><a href="#actividades">✦ Actividades</a><a href="#alarms">♡ Alarmas</a><a href="#reglas">☆ Reglas</a></div></nav>
 <main class="wrap">
-  <section id="home" class="hero">
-    <div class="window">
-      <div class="windowbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="windowtitle">welcome.exe</span></div>
-      <div class="hero-copy">
-        <div class="eyebrow">✦ THE IDOL SOCIAL NETWORK ✦</div>
-        <h1>LOVE<span>.exe</span></h1>
-        <p class="lead">Un pequeño universo digital para conocer idols, hacer amistades, compartir gustos y crear recuerdos. Una nueva conexión podría empezar aquí. ♡</p>
-        <div class="actions">
-          <a class="btn primary" href="#play">♡ Explorar actividades</a>
-          <a class="btn secondary" href="#about">Conocer el team ↘</a>
-        </div>
-      </div>
-    </div>
-    <aside class="window hero-side">
-      <div class="big-heart" aria-label="Corazón decorativo">
-        <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">⋆</span>
-        <div class="pixelheart">♡</div>
-      </div>
-      <div class="mini-status">
-        <div>USER STATUS: <strong>NEW CONNECTION</strong></div>
-        <div>FRIENDSHIP LEVEL: <strong>LOADING...</strong></div>
-        <div>MISSION: <strong>MAKE A MEMORY ♡</strong></div>
-      </div>
-    </aside>
-  </section>
-
-  <section id="about">
-    <div class="section-head"><div><h2>୨୧ About our universe</h2><p>¿Qué es LOVE.exe?</p></div><span class="eyebrow">FILE 001</span></div>
-    <div class="grid">
-      <article class="card"><div class="icon">💿</div><h3>Una comunidad de idols</h3><p>Un espacio para conversar, conocer gente y compartir nuestros gustos en un ambiente amistoso.</p><span class="pill">CONNECT</span></article>
-      <article class="card"><div class="icon">🎮</div><h3>Actividades & random</h3><p>Misiones, preguntas, retos creativos y juegos para romper el hielo y pasarla bien.</p><span class="pill">PLAY</span></article>
-      <article class="card"><div class="icon">💌</div><h3>Alarmas emocionales</h3><p>Un lugar para expresar cariño o desacuerdos con respeto. Nadie merece acoso ni humillaciones.</p><span class="pill">EXPRESS</span></article>
-    </div>
-  </section>
-
-  <section id="play">
-    <div class="section-head"><div><h2>✧ PLAY.exe</h2><p>Mini actividades para desbloquear tu siguiente misión.</p></div><span class="eyebrow">RANDOM MODE</span></div>
-    <div class="tools">
-      <article class="window tool-card">
-        <div class="windowbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="windowtitle">mission_generator.exe</span></div>
-        <div class="tool-body">
-          <h3>🎮 Misión aleatoria</h3>
-          <p>Genera una pequeña misión que puedes hacer en el team. ¡No hay presión, puedes saltártela!</p>
-          <button class="btn primary" id="missionBtn">Generar misión ♡</button>
-          <div class="result" id="missionResult" aria-live="polite">Tu próxima misión aparecerá aquí...</div>
-          <div class="btn-row"><button class="btn secondary small" id="copyMission">Copiar misión</button></div>
-        </div>
-      </article>
-      <article class="window tool-card">
-        <div class="windowbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="windowtitle">daily_question.exe</span></div>
-        <div class="tool-body">
-          <h3>💬 Pregunta random</h3>
-          <p>Una pregunta para iniciar conversaciones y conocer mejor a los demás.</p>
-          <button class="btn primary" id="questionBtn">Nueva pregunta ✧</button>
-          <div class="result" id="questionResult" aria-live="polite">Pulsa el botón para descubrir una pregunta.</div>
-          <div class="btn-row"><button class="btn secondary small" id="copyQuestion">Copiar pregunta</button></div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="alarm">
-    <div class="section-head"><div><h2>♡ ALARM.exe</h2><p>Prepara un mensaje para compartir si quieres.</p></div><span class="eyebrow">MESSAGE LAB</span></div>
-    <div class="window">
-      <div class="windowbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="windowtitle">love_alarm_generator.exe</span></div>
-      <div class="tool-body">
-        <h3>💗 Love Alarm generator</h3>
-        <p>Elige una intención y genera una idea de mensaje. El texto se queda en tu dispositivo hasta que decidas copiarlo; no se envía automáticamente.</p>
-        <label for="alarmType"><b>Tipo de mensaje</b></label><br><br>
-        <select id="alarmType" class="wide">
-          <option value="friend">Agradecer una amistad</option>
-          <option value="admire">Expresar admiración</option>
-          <option value="welcome">Dar la bienvenida</option>
-          <option value="kind">Enviar un cumplido</option>
-          <option value="sorry">Hablar de una molestia con respeto</option>
-        </select>
-        <div class="btn-row"><button class="btn primary" id="alarmBtn">Crear mensaje ♡</button><button class="btn secondary" id="copyAlarm">Copiar texto</button></div>
-        <div class="result" id="alarmResult" aria-live="polite">Tu mensaje aparecerá aquí. Puedes editarlo antes de compartirlo.</div>
-        <p class="note">♡ Recuerda: los mensajes anónimos no deben usarse para insultar, presionar ni exponer información privada.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="join">
-    <div class="join">
-      <div><div class="eyebrow">CONNECTION REQUEST</div><h2>¿Te unes a LOVE.exe? ♡</h2><p>Conoce las reglas y solicita acceso a nuestra comunidad de WhatsApp.</p></div>
-      <a class="btn primary" id="joinBtn" href="#" target="_blank" rel="noopener">Entrar a WhatsApp ↗</a>
-    </div>
-    <p class="note">Administración: reemplaza el enlace de ejemplo en el archivo por el enlace de invitación oficial de tu comunidad antes de publicar.</p>
-  </section>
-</main>
-
-<footer class="wrap">╰・♡・LOVE.exe — WHERE CONNECTIONS BEGIN・♡・╯<br><br>Made with pixels, pink hearts & friendship ✧</footer>
-
+<section id="inicio"><div class="head"><div class="eyebrow">01 / dashboard</div><h2>Tu panel principal ♡</h2></div><div class="grid">
+<article class="card pink"><div class="icon">💌</div><h3>Conócenos</h3><p>Un team para hacer amistades, participar y compartir con respeto.</p><a class="btn small" href="#comunidad">Ver comunidad</a></article>
+<article class="card lav"><div class="icon">🎲</div><h3>Mini misión</h3><p>Una idea rápida para activar el chat.</p><button class="small" id="missionBtn">Generar misión</button><div class="result" id="missionResult">Pulsa para descubrir tu misión ♡</div></article>
+<article class="card blue"><div class="icon">💭</div><h3>Pregunta del día</h3><p>Para empezar una conversación.</p><button class="small" id="questionBtn">Nueva pregunta</button><div class="result" id="questionResult">¿Qué pregunta saldrá hoy?</div></article></div></section>
+<section id="comunidad"><div class="head"><div class="eyebrow">02 / community</div><h2>La comunidad</h2></div><div class="grid">
+<article class="card"><div class="icon">💬</div><h3>Chat general</h3><p>Conversar, compartir gustos y conocer a los demás.</p></article><article class="card"><div class="icon">🎉</div><h3>Actividades</h3><p>Retos creativos, juegos y dinámicas grupales.</p></article><article class="card"><div class="icon">🌷</div><h3>Recepción</h3><p>Dar la bienvenida y ayudar a integrarse.</p></article><article class="card"><div class="icon">🗂️</div><h3>Administración</h3><p>Avisos importantes y organización del team.</p></article><article class="card"><div class="icon">💗</div><h3>Love Alarm</h3><p>Mensajes de cariño, admiración o agradecimiento con respeto.</p></article><article class="card"><div class="icon">🫧</div><h3>Hate Alarm responsable</h3><p>Expresa incomodidades sin insultos ni humillaciones. Para situaciones delicadas, habla en privado con administración.</p></article></div>
+<div class="card pink" style="margin-top:13px"><h3>¿Quieres unirte al WhatsApp? ♡</h3><p>Configura tu enlace de invitación para que puedan entrar al team.</p><div class="toolbar"><a class="btn" id="joinButton" href="#comunidad">Abrir invitación de WhatsApp ↗</a><span class="muted" id="joinHint">Falta configurar el enlace.</span></div></div></section>
+<section id="perfiles"><div class="head"><div class="eyebrow">03 / member cards</div><h2>Perfiles de miembros ☻</h2></div><p class="muted">Crea tarjetas con apodo, rol y gustos.</p><div id="profiles" class="profiles"></div><button id="toggleProfile" style="margin-top:12px">＋ Añadir perfil</button>
+<form id="profileForm" class="formbox hidden"><h3>Nuevo perfil ♡</h3><div class="formgrid"><div class="field"><label for="nickname">Apodo *</label><input id="nickname" maxlength="28" required placeholder="Ej. moonie"></div><div class="field"><label for="emoji">Avatar</label><select id="emoji"><option>🎀</option><option>🐈</option><option>🪽</option><option>🌷</option><option>🦢</option><option>🧸</option><option>🌙</option><option>⭐</option></select></div><div class="field"><label for="memberRole">Rol</label><select id="memberRole"><option>Miembro</option><option>Administración</option><option>Moderación</option><option>Recepción</option><option>Creatividad</option></select></div><div class="field"><label for="pronouns">Pronombres (opcional)</label><input id="pronouns" maxlength="24" placeholder="Ej. ella / elle"></div><div class="field full"><label for="likes">Gustos / descripción</label><textarea id="likes" maxlength="160" placeholder="Música, hobbies, cosas favoritas..."></textarea></div></div><div class="toolbar" style="margin-top:12px"><button type="submit">Guardar perfil</button><button type="button" class="small" id="cancelProfile">Cancelar</button></div></form><p class="notice">Importante: los perfiles se guardan solo en este navegador/dispositivo. Para compartir perfiles entre todos los miembros necesitaremos una base de datos adicional. No publiques dirección, colegio ni teléfono personal.</p></section>
+<section id="actividades"><div class="head"><div class="eyebrow">04 / playroom</div><h2>Zona de actividades ✦</h2></div><div class="grid">
+<article class="card lav"><div class="icon">🎭</div><h3>Reto creativo</h3><p>Una dinámica para el grupo.</p><button class="small" id="challengeBtn">Sortear reto</button><div id="challengeResult" class="result">¿Listos para jugar?</div></article><article class="card blue"><div class="icon">🧩</div><h3>Rompehielos</h3><p>Para conversar con alguien nuevo.</p><button class="small" id="iceBtn">Dame una idea</button><div id="iceResult" class="result">Empieza con algo simple.</div></article><article class="card pink"><div class="icon">🏆</div><h3>Mini reconocimiento</h3><p>Dedica una frase bonita a alguien.</p><button class="small" id="complimentBtn">Crear frase</button><div id="complimentResult" class="result">Un detalle puede alegrar el día.</div></article></div></section>
+<section id="alarms"><div class="head"><div class="eyebrow">05 / message lab</div><h2>Love Alarm ♡ / Mensajes</h2></div><div class="card"><p class="muted">Genera un mensaje amable, cópialo y envíalo por el canal adecuado.</p><div class="formgrid"><div class="field"><label for="alarmType">Tipo de mensaje</label><select id="alarmType"><option value="welcome">Bienvenida</option><option value="admire">Admiración</option><option value="thanks">Agradecimiento</option><option value="friend">Amistad</option><option value="boundary">Algo me incomodó</option></select></div><div class="field"><label for="alarmName">Nombre o apodo (opcional)</label><input id="alarmName" maxlength="28" placeholder="Ej. moonie"></div><div class="field full"><label for="alarmDetail">Detalle (opcional)</label><input id="alarmDetail" maxlength="100" placeholder="Ej. siempre haces reír al grupo"></div></div><div class="toolbar" style="margin-top:12px"><button id="makeAlarm">Crear mensaje</button><button class="small" id="copyAlarm">Copiar mensaje</button></div><div class="result" id="alarmResult" aria-live="polite">Tu mensaje aparecerá aquí ♡</div><p class="notice">Esta herramienta solo genera texto: no envía mensajes ni garantiza anonimato. Si expresas una queja, céntrate en la conducta y evita ataques personales.</p></div></section>
+<section id="reglas"><div class="head"><div class="eyebrow">06 / safe space</div><h2>Reglas para cuidar el espacio ☆</h2></div><div class="grid"><article class="card"><h3>♡ Respeto primero</h3><p>Sin insultos, acoso, discriminación ni amenazas.</p></article><article class="card"><h3>🔒 Privacidad</h3><p>No compartas capturas ni datos de alguien sin permiso.</p></article><article class="card"><h3>🫶 Límites claros</h3><p>Los mensajes no deben servir para presionar, exponer o humillar.</p></article></div></section>
+</main><footer class="wrap">LOVE.exe ♡ made with care · <span id="year"></span><br>Una comunidad bonita se construye entre todos.</footer>
 <script>
-const missions = [
-  ["NEW CONNECTION", "Inicia una conversación con alguien con quien aún no hayas hablado."],
-  ["PLAYLIST UNLOCKED", "Comparte una canción que combine con tu estado de ánimo."],
-  ["IDOL MODE", "Comparte una foto o edición de tu idol favorito."],
-  ["MEMORY UNLOCKED", "Cuenta un recuerdo bonito que quieras compartir."],
-  ["SOCIAL BUTTERFLY", "Haz una pregunta divertida en el chat general."],
-  ["COMPLIMENT BONUS", "Dile a alguien algo amable y sincero."],
-  ["SIDE QUEST", "Comparte un gusto tuyo que pocas personas conozcan."],
-  ["MOOD CHECK", "Describe tu día usando tres emojis."]
-];
-const questions = [
-  "¿Qué canción describe tu personalidad?",
-  "¿Qué idol elegirías como compañero de aventuras?",
-  "¿Cuál es tu gusto culposo musical?",
-  "¿Qué primera impresión crees que das?",
-  "Si pudieras viajar a cualquier lugar, ¿a dónde irías?",
-  "¿Qué pequeña cosa siempre consigue alegrarte el día?",
-  "¿Qué canción recomendarías a todo el team?",
-  "¿Qué personaje ficticio sería tu mejor amistad?",
-  "¿Cuál es un talento random que tienes?",
-  "¿Qué tres emojis representan tu mood de hoy?"
-];
-const messages = {
- friend: ["Gracias por hacer que este espacio se sienta más bonito. Me alegra poder compartir momentos contigo. ♡","Aprecio mucho las conversaciones y los momentos que compartimos. ¡Gracias por ser parte del team! 💌"],
- admire: ["Quería decirte que admiro tu forma de ser y la energía bonita que aportas al grupo. ✧","Tienes algo especial que hace que sea agradable conversar contigo. Sigue siendo tú. ♡"],
- welcome: ["¡Bienvenid@ a LOVE.exe! Espero que puedas sentirte cómod@, conocer gente y crear recuerdos bonitos con nosotros. 🎀","Nueva conexión desbloqueada ♡ ¡Qué alegría tenerte aquí! No dudes en participar a tu ritmo."],
- kind: ["Recordatorio random: tu presencia también puede hacerle el día mejor a alguien. Gracias por estar aquí. ♡","Solo paso a decirte que mereces recibir la misma amabilidad que compartes con los demás. ✨"],
- sorry: ["Quería comentarte algo con respeto: me sentí incómod@ con lo que pasó. ¿Podemos hablarlo para entendernos mejor?","No quiero crear un conflicto, pero sí expresar que esa situación me molestó. Me gustaría que pudiéramos hablarlo con calma."]
-};
-let currentMission = "", currentQuestion = "", currentAlarm = "";
-function choose(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-function show(id, title, text){ document.getElementById(id).innerHTML = "<strong>"+title+"</strong>"+text; }
-document.getElementById("missionBtn").addEventListener("click",()=>{
- const item=choose(missions); currentMission=item[0]+": "+item[1]; show("missionResult",item[0],item[1]);
-});
-document.getElementById("questionBtn").addEventListener("click",()=>{
- currentQuestion=choose(questions); show("questionResult","QUESTION OF THE DAY",currentQuestion);
-});
-document.getElementById("alarmBtn").addEventListener("click",()=>{
- const type=document.getElementById("alarmType").value;
- currentAlarm=choose(messages[type]); show("alarmResult","MESSAGE GENERATED ♡",currentAlarm);
-});
-async function copyText(text){
- if(!text){alert("Primero genera un resultado ♡");return;}
- try{await navigator.clipboard.writeText(text);alert("¡Copiado! ♡");}
- catch(e){const area=document.createElement("textarea");area.value=text;document.body.appendChild(area);area.select();document.execCommand("copy");area.remove();alert("¡Copiado! ♡");}
-}
-document.getElementById("copyMission").addEventListener("click",()=>copyText(currentMission));
-document.getElementById("copyQuestion").addEventListener("click",()=>copyText(currentQuestion));
-document.getElementById("copyAlarm").addEventListener("click",()=>copyText(currentAlarm));
-const whatsappInvite = "https://chat.whatsapp.com/REEMPLAZA_ESTE_ENLACE";
-document.getElementById("joinBtn").href=whatsappInvite;
-document.getElementById("joinBtn").addEventListener("click",(e)=>{
- if(whatsappInvite.includes("REEMPLAZA_ESTE_ENLACE")){e.preventDefault();alert("Antes de publicar, reemplaza el enlace de ejemplo por el enlace oficial de invitación de tu comunidad.");}
-});
-</script>
-</body>
-</html>
+/* Pega tu invitación real de WhatsApp entre las comillas. */
+const WHATSAPP_INVITE="REEMPLAZA_ESTE_ENLACE";
+const $=id=>document.getElementById(id),pick=a=>a[Math.floor(Math.random()*a.length)];
+const missions=["Comparte una canción que te represente hoy.","Recomienda una película, serie o anime.","Di tres cosas pequeñas que te alegran el día.","Comparte un dato curioso no privado sobre ti.","Dedícale una canción a la energía del team.","Inventa un nombre para la mascota de LOVE.exe.","Comparte un emoji que describa tu semana."];
+const questions=["¿Qué canción podrías escuchar en bucle?","¿Qué color representa tu personalidad?","¿Qué personaje ficticio sería tu mejor amigo?","¿Qué pequeño detalle te alegra el día?","¿Cuál es tu snack favorito?","¿Qué habilidad te gustaría aprender?","¿Qué lugar ficticio te gustaría visitar?"];
+const challenges=["Crea una playlist de 3 canciones con la misma vibra.","Recomienda algo que te guste mucho.","Describe tu día usando cinco emojis.","Escribe una mini historia de tres líneas entre todos.","Crea un nombre de usuario aesthetic con tres palabras."],icebreakers=["Pregunta qué música escucha alguien últimamente.","Pide una recomendación de serie o libro.","Comparte una canción y pregunta qué vibra transmite.","Pregunta cómo sería su día perfecto.","Hablen de una afición que quieran probar."],compliments=["Tu presencia aporta una energía bonita al grupo ♡","Gracias por hacer que este espacio sea más amable.","Tu creatividad merece ser celebrada ✦","Espero que hoy recuerdes que tu presencia importa.","Gracias por compartir un poquito de tu mundo ♡"];
+$("missionBtn").onclick=()=>$("missionResult").textContent=pick(missions);$("questionBtn").onclick=()=>$("questionResult").textContent=pick(questions);$("challengeBtn").onclick=()=>$("challengeResult").textContent=pick(challenges);$("iceBtn").onclick=()=>$("iceResult").textContent=pick(icebreakers);$("complimentBtn").onclick=()=>$("complimentResult").textContent=pick(compliments);$("year").textContent=new Date().getFullYear();
+if(WHATSAPP_INVITE.startsWith("https://chat.whatsapp.com/")){$("joinButton").href=WHATSAPP_INVITE;$("joinButton").target="_blank";$("joinButton").rel="noopener";$("joinHint").textContent="Invitación configurada ♡";}else{$("joinButton").onclick=e=>{e.preventDefault();alert("Edita WHATSAPP_INVITE en index.html y pega tu enlace de invitación de WhatsApp.");};}
+const key="loveExeProfilesV2";let profiles=[];try{profiles=JSON.parse(localStorage.getItem(key)||"[]");if(!Array.isArray(profiles))profiles=[]}catch(e){profiles=[]}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function render(){const root=$("profiles");if(!profiles.length){root.innerHTML='<div class="card" style="grid-column:1/-1;text-align:center"><div class="icon">🪽</div><h3>Tu comunidad empieza aquí</h3><p>Añade los primeros perfiles del team.</p></div>';return}root.innerHTML=profiles.map((p,i)=>`<article class="profile"><div class="avatar">${esc(p.emoji)}</div><h3>${esc(p.nickname)}</h3><span class="role">${esc(p.role)}</span>${p.pronouns?`<p>${esc(p.pronouns)}</p>`:""}<p>${esc(p.likes||"Un miembro de LOVE.exe ♡")}</p><button class="small" data-remove="${i}">Eliminar</button></article>`).join("");root.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{if(confirm("¿Eliminar este perfil de este navegador?")){profiles.splice(+b.dataset.remove,1);save()}})}
+function save(){try{localStorage.setItem(key,JSON.stringify(profiles))}catch(e){}render()}
+$("toggleProfile").onclick=()=>$("profileForm").classList.toggle("hidden");$("cancelProfile").onclick=()=>{$("profileForm").reset();$("profileForm").classList.add("hidden")};$("profileForm").onsubmit=e=>{e.preventDefault();profiles.push({nickname:$("nickname").value.trim(),emoji:$("emoji").value,role:$("memberRole").value,pronouns:$("pronouns").value.trim(),likes:$("likes").value.trim()});save();$("profileForm").reset();$("profileForm").classList.add("hidden")};render();
+let current="";$("makeAlarm").onclick=()=>{let type=$("alarmType").value,n=$("alarmName").value.trim(),d=$("alarmDetail").value.trim(),who=n?n+", ":"";const m={welcome:`¡Bienvenid@ ${n} a LOVE.exe! ♡ Esperamos que encuentres amistades y momentos bonitos aquí. ${d}`,admire:`${who}quería decirte que valoro algo de ti${d?": "+d:""}. Gracias por compartir tu energía ♡`,thanks:`${who}gracias${d?" por "+d:" por ser parte de este espacio"}. ¡Se aprecia mucho! ♡`,friend:`${who}me gustaría conocerte más y compartir momentos de amistad en el team ♡ ${d}`,boundary:`${who}quería comentar algo con respeto: ${d||"hubo algo que me hizo sentir incómod@"}. ¿Podemos hablarlo con calma para entendernos mejor?`};current=m[type];$("alarmResult").textContent=current};$("copyAlarm").onclick=async()=>{if(!current){alert("Primero crea un mensaje.");return}try{await navigator.clipboard.writeText(current);alert("¡Mensaje copiado! ♡")}catch(e){alert("No se pudo copiar automáticamente. Mantén pulsado el texto del mensaje para copiarlo.")}};
+</script></body></html>
