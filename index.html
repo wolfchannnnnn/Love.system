@@ -94,7 +94,10 @@
   margin: 12px 0 0 8px;
   vertical-align: middle;
 }
-</style></head><body>
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
 <div class="top">♡ WELCOME TO LOVE.exe // FRIENDSHIP LOADING... ♡</div>
 <header class="wrap hero"><div class="panel"><div class="brand"><span class="logo">♡</span> LOVE.exe · TEAM HUB</div><h1>Love is<br><span>online.</span></h1><p class="muted">Un rincón digital para conocernos, jugar, compartir momentos y hacer que la comunidad se sienta como un lugar seguro.</p><div class="pills"><span class="pill">♡ amistad</span><span class="pill">✦ actividades</span><span class="pill">⌁ Y2K webcore</span></div><a class="btn" href="#comunidad">Entrar al team ♡</a>
 <button type="button" id="openAuth">Iniciar sesión ♡</button></div><div class="panel heroSide"><span class="status">● SYSTEM ONLINE</span><div><h2>Tu espacio.<br>Tu gente. Tu vibe.</h2><p>Conexiones bonitas, actividades y recuerdos compartidos.</p></div><span class="status">VERSION 2.0 · BETA</span></div></header>
@@ -142,7 +145,13 @@
 
     <p id="authMessage"></p>
   </div>
-</div><script>
+</div><script>const SUPABASE_URL = "https://ynkodyhuoxbrkrgzhojm.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_GVFpWy6LC0sDK0JKWMUatg_WOK_14lg";
+
+const supabaseClient = window.supabase.createClient(console.log("LOVE.exe conectado:", !!supabaseClient);
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
 /* Pega tu invitación real de WhatsApp entre las comillas. */
 const WHATSAPP_INVITE="REEMPLAZA_ESTE_ENLACE";
 const $=id=>document.getElementById(id),pick=a=>a[Math.floor(Math.random()*a.length)];
