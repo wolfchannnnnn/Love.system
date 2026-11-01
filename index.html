@@ -2,9 +2,97 @@
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8d9eb"><title>LOVE.exe ♡</title>
 <style>
 :root{--ink:#39283e;--muted:#806b84;--pink:#f8d9eb;--lav:#e8e0ff;--blue:#def4ff;--line:#ead7e7;--white:#fffaff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:system-ui,sans-serif;line-height:1.55;background:radial-gradient(circle at 10% 0,#ffe4f2,transparent 27rem),radial-gradient(circle at 100% 25%,#e9e3ff,transparent 28rem),#fff9fd}a{color:inherit;text-decoration:none}button,.btn{font:inherit;font-weight:750;color:var(--ink);background:linear-gradient(135deg,#fff,#ffedf7);border:1px solid #e8c8de;border-radius:13px;padding:10px 14px;box-shadow:0 4px 0 #edd7e7;cursor:pointer}button:active{transform:translateY(2px);box-shadow:0 2px 0 #edd7e7}.wrap{width:min(1050px,calc(100% - 24px));margin:auto}.top{background:#39283e;color:white;text-align:center;padding:8px;font-size:.78rem;letter-spacing:.1em}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;padding:24px 0}.panel,.card,.profile{background:#ffffffdc;border:1px solid var(--line);border-radius:22px;padding:clamp(17px,3vw,27px);box-shadow:0 10px 25px #805b7915}.brand{font-weight:850;letter-spacing:.12em;color:#b05288}.logo{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--pink),var(--lav));font-size:1.3rem;margin-right:7px}h1{font-size:clamp(2.8rem,8vw,5rem);line-height:.96;letter-spacing:-.07em;margin:20px 0 12px}h1 span{color:#d66ba7}.muted{color:var(--muted)}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.pill{font-size:.78rem;padding:4px 9px;border:1px solid var(--line);border-radius:99px;background:#fff4fa}.heroSide{background:linear-gradient(145deg,#f9dced,#e8e1ff,#def4ff);display:flex;flex-direction:column;justify-content:space-between;min-height:220px}.status{background:#ffffffa8;border-radius:99px;padding:6px 10px;font-size:.8rem;width:max-content}.heroSide h2{font-size:1.8rem;line-height:1.15}nav{position:sticky;top:0;z-index:5;background:#fffaf2ed;border-block:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;gap:5px;overflow:auto;padding:8px 0;scrollbar-width:none}.nav a{white-space:nowrap;padding:8px 11px;border-radius:11px;font-weight:700;font-size:.88rem}.nav a:hover{background:#ffedf7}section{padding:23px 0;scroll-margin-top:70px}.head{margin-bottom:13px}.eyebrow{font-size:.73rem;letter-spacing:.14em;text-transform:uppercase;color:#b05288;font-weight:850}h2{margin:3px 0;font-size:clamp(1.55rem,4vw,2.1rem);letter-spacing:-.04em}h3{margin:0 0 5px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{padding:18px}.icon{font-size:1.65rem}.card p,.profile p{font-size:.92rem;color:var(--muted)}.pink{background:linear-gradient(135deg,#fff,#fff0f7)}.lav{background:linear-gradient(135deg,#fff,#f0ecff)}.blue{background:linear-gradient(135deg,#fff,#e8f8ff)}.result{margin-top:10px;border:1px dashed #d9b9d5;border-radius:13px;padding:12px;background:#fff7fc;min-height:52px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.small{font-size:.84rem;padding:8px 10px}.profiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.profile{padding:17px;overflow-wrap:anywhere}.avatar{display:grid;place-items:center;width:54px;height:54px;background:linear-gradient(135deg,var(--pink),var(--lav));border-radius:17px;font-size:1.6rem;margin-bottom:9px}.role{display:inline-block;background:#fbedf6;border-radius:99px;padding:3px 8px;font-size:.76rem}.formbox{background:#fff5fb;border:1px dashed #dcbdd4;border-radius:18px;padding:15px;margin-top:13px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:.82rem;font-weight:750}input,select,textarea{width:100%;font:inherit;border:1px solid #e1cddd;border-radius:11px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:75px}.full{grid-column:1/-1}.notice{font-size:.83rem;color:var(--muted);background:#f5f0ff;padding:11px;border-radius:12px}.hidden{display:none!important}footer{text-align:center;padding:30px 0 42px;color:var(--muted);font-size:.84rem}@media(max-width:700px){.hero{grid-template-columns:1fr}.grid,.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.grid,.profiles,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding-top:14px}.heroSide{min-height:180px}}
-</style></head><body>
+/* VENTANA EMERGENTE LOVE.exe */
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(35, 20, 45, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-modal.hidden,
+#registerForm.hidden,
+#loginForm.hidden {
+  display: none;
+}
+
+.auth-box {
+  position: relative;
+  width: 100%;
+  max-width: 370px;
+  padding: 28px 22px;
+  border: 2px solid #f4b8dc;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #fff4fb, #eee8ff);
+  box-shadow: 0 12px 40px rgba(80, 40, 100, 0.25);
+  text-align: center;
+  color: #684b79;
+}
+
+.auth-box h2 {
+  margin: 5px 0;
+  color: #c47db5;
+}
+
+.auth-box input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 7px 0;
+  padding: 13px;
+  border: 1px solid #e7c4e9;
+  border-radius: 12px;
+  background: white;
+  font: inherit;
+}
+
+.auth-box button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 15px;
+  font: inherit;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 12px;
+}
+
+.auth-tab {
+  flex: 1;
+  background: #eadcf8;
+  color: #765b89;
+}
+
+.auth-tab.active {
+  background: #e9b9dc;
+  color: #633e67;
+}
+
+.auth-box form > button {
+  width: 100%;
+  margin-top: 12px;
+  background: #dba9d8;
+  color: white;
+  font-weight: bold;
+}
+
+.auth-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  color: #946c9c;
+  font-size: 25px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       }</style></head><body>
 <div class="top">♡ WELCOME TO LOVE.exe // FRIENDSHIP LOADING... ♡</div>
-<header class="wrap hero"><div class="panel"><div class="brand"><span class="logo">♡</span> LOVE.exe · TEAM HUB</div><h1>Love is<br><span>online.</span></h1><p class="muted">Un rincón digital para conocernos, jugar, compartir momentos y hacer que la comunidad se sienta como un lugar seguro.</p><div class="pills"><span class="pill">♡ amistad</span><span class="pill">✦ actividades</span><span class="pill">⌁ Y2K webcore</span></div><a class="btn" href="#comunidad">Entrar al team ♡</a></div><div class="panel heroSide"><span class="status">● SYSTEM ONLINE</span><div><h2>Tu espacio.<br>Tu gente. Tu vibe.</h2><p>Conexiones bonitas, actividades y recuerdos compartidos.</p></div><span class="status">VERSION 2.0 · BETA</span></div></header>
+<header class="wrap hero"><div class="panel"><div class="brand"><span class="logo">♡</span> LOVE.exe · TEAM HUB</div><h1>Love is<br><span>online.</span></h1><p class="muted">Un rincón digital para conocernos, jugar, compartir momentos y hacer que la comunidad se sienta como un lugar seguro.</p><div class="pills"><span class="pill">♡ amistad</span><span class="pill">✦ actividades</span><span class="pill">⌁ Y2K webcore</span></div><a class="btn" href="#comunidad">Entrar al team ♡</a>
+<button type="button" id="openAuth">Iniciar sesión ♡</button></div><div class="panel heroSide"><span class="status">● SYSTEM ONLINE</span><div><h2>Tu espacio.<br>Tu gente. Tu vibe.</h2><p>Conexiones bonitas, actividades y recuerdos compartidos.</p></div><span class="status">VERSION 2.0 · BETA</span></div></header>
 <nav><div class="wrap nav"><a href="#inicio">⌂ Inicio</a><a href="#comunidad">♡ Comunidad</a><a href="#perfiles">☻ Perfiles</a><a href="#actividades">✦ Actividades</a><a href="#alarms">♡ Alarmas</a><a href="#reglas">☆ Reglas</a></div></nav>
 <main class="wrap">
 <section id="inicio"><div class="head"><div class="eyebrow">01 / dashboard</div><h2>Tu panel principal ♡</h2></div><div class="grid">
@@ -36,4 +124,56 @@ function render(){const root=$("profiles");if(!profiles.length){root.innerHTML='
 function save(){try{localStorage.setItem(key,JSON.stringify(profiles))}catch(e){}render()}
 $("toggleProfile").onclick=()=>$("profileForm").classList.toggle("hidden");$("cancelProfile").onclick=()=>{$("profileForm").reset();$("profileForm").classList.add("hidden")};$("profileForm").onsubmit=e=>{e.preventDefault();profiles.push({nickname:$("nickname").value.trim(),emoji:$("emoji").value,role:$("memberRole").value,pronouns:$("pronouns").value.trim(),likes:$("likes").value.trim()});save();$("profileForm").reset();$("profileForm").classList.add("hidden")};render();
 let current="";$("makeAlarm").onclick=()=>{let type=$("alarmType").value,n=$("alarmName").value.trim(),d=$("alarmDetail").value.trim(),who=n?n+", ":"";const m={welcome:`¡Bienvenid@ ${n} a LOVE.exe! ♡ Esperamos que encuentres amistades y momentos bonitos aquí. ${d}`,admire:`${who}quería decirte que valoro algo de ti${d?": "+d:""}. Gracias por compartir tu energía ♡`,thanks:`${who}gracias${d?" por "+d:" por ser parte de este espacio"}. ¡Se aprecia mucho! ♡`,friend:`${who}me gustaría conocerte más y compartir momentos de amistad en el team ♡ ${d}`,boundary:`${who}quería comentar algo con respeto: ${d||"hubo algo que me hizo sentir incómod@"}. ¿Podemos hablarlo con calma para entendernos mejor?`};current=m[type];$("alarmResult").textContent=current};$("copyAlarm").onclick=async()=>{if(!current){alert("Primero crea un mensaje.");return}try{await navigator.clipboard.writeText(current);alert("¡Mensaje copiado! ♡")}catch(e){alert("No se pudo copiar automáticamente. Mantén pulsado el texto del mensaje para copiarlo.")}};
-</script></body></html>
+const authModal = document.getElementById("authModal");
+const loginTab = document.getElementById("loginTab");
+const registerTab = document.getElementById("registerTab");
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+
+document.getElementById("closeAuth").onclick = () => {
+  authModal.classList.add("hidden");
+};
+
+loginTab.onclick = () => {
+  loginForm.classList.remove("hidden");
+  registerForm.classList.add("hidden");
+  loginTab.classList.add("active");
+  registerTab.classList.remove("active");
+};
+
+registerTab.onclick = () => {
+  registerForm.classList.remove("hidden");
+  loginForm.classList.add("hidden");
+  registerTab.classList.add("active");
+  loginTab.classList.remove("active");
+};document.getElementById("openAuth").onclick = () => {
+  authModal.classList.remove("hidden");
+};</script><!-- VENTANA DE INICIO DE SESIÓN -->
+<div id="authModal" class="auth-modal hidden">
+  <div class="auth-box">
+    <button id="closeAuth" class="auth-close">×</button>
+
+    <h2>LOVE.exe ♡</h2>
+    <p>¡Qué bueno tenerte aquí!</p>
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="auth-tab active">Iniciar sesión</button>
+      <button id="registerTab" class="auth-tab">Registrarse</button>
+    </div>
+
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+      <input type="password" id="loginPassword" placeholder="Contraseña" required>
+      <button type="submit">Entrar ♡</button>
+    </form>
+
+    <form id="registerForm" class="hidden">
+      <input type="text" id="inviteCode" placeholder="Código de invitación" required>
+      <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+      <input type="password" id="registerPassword" placeholder="Contraseña" minlength="8" required>
+      <button type="submit">Solicitar acceso ♡</button>
+    </form>
+
+    <p id="authMessage"></p>
+  </div>
+</div></body></html>
