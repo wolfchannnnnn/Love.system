@@ -153,8 +153,17 @@ const supabaseClient = window.supabase.createClient(
 );
 
 console.log("LOVE.exe conectado:", !!supabaseClient);
+supabaseClient.auth.onAuthStateChange((event, session) => {
+  const authButton = document.getElementById("openAuth");
 
-console.log("LOVE.exe conectado:", !!supabaseClient);
+  if (session) {
+    authModal.classList.add("hidden");
+    authButton.textContent = "Mi cuenta";
+  } else {
+    authButton.textContent = "Iniciar sesión";
+  }
+});
+
 /* Pega tu invitación real de WhatsApp entre las comillas. */
 const WHATSAPP_INVITE="REEMPLAZA_ESTE_ENLACE";
 const $=id=>document.getElementById(id),pick=a=>a[Math.floor(Math.random()*a.length)];
