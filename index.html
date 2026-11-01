@@ -192,5 +192,26 @@ registerTab.onclick = () => {
   registerTab.classList.add("active");
   loginTab.classList.remove("active");
 };document.getElementById("openAuth").onclick = () => {
-  authModal.classList.remove("hidden");
+  authModal.classList.remove("hidden");loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  const message = document.getElementById("authMessage");
+
+  message.textContent = "Iniciando sesión...";
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: email,
+    password: password
+  });
+
+  if (error) {
+    message.textContent = "Error: correo o contraseña incorrectos.";
+    return;
+  }
+
+  message.textContent = "¡Bienvenido a LOVE.exe! ♡";
+  console.log("Sesión iniciada:", data.user.id);
+});
 };</script></body></html>
