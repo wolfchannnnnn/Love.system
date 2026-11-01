@@ -161,7 +161,7 @@
   </div>
 </div>
 
-<script><script>const SUPABASE_URL = "https://ynkodyhuoxbrkrgzhojm.supabase.co";
+<script>const SUPABASE_URL = "https://ynkodyhuoxbrkrgzhojm.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_GVFpWy6LC0sDK0JKWMUatg_WOK_14lg";
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
@@ -216,8 +216,8 @@ registerTab.onclick = () => {
   loginForm.classList.add("hidden");
   registerTab.classList.add("active");
   loginTab.classList.remove("active");
-};document.getElementById("openAuth").onclick = () => {
-  authModal.classList.remove("hidden");loginForm.addEventListener("submit", async (e) => {
+};// INICIO DE SESIÓN
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const email = document.getElementById("loginEmail").value;
@@ -227,8 +227,8 @@ registerTab.onclick = () => {
   message.textContent = "Iniciando sesión...";
 
   const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email: email,
-    password: password
+    email,
+    password
   });
 
   if (error) {
@@ -237,15 +237,20 @@ registerTab.onclick = () => {
   }
 
   message.textContent = "¡Bienvenido a LOVE.exe! ♡";
-  console.log("Sesión iniciada:", data.user.id);
 });
 
+// VENTANA MI CUENTA
 const accountModal = document.getElementById("accountModal");
 
-document.getElementById("openAuth").addEventListener("click", async () => {
-  const { data: { user }, error } = await supabaseClient.auth.getUser();
+// BOTÓN PRINCIPAL
+document.getElementById("openAuth").onclick = async () => {
+  const { data: { user }, error } =
+    await supabaseClient.auth.getUser();
 
-  if (error || !user) return;
+  if (error || !user) {
+    authModal.classList.remove("hidden");
+    return;
+  }
 
   document.getElementById("accountEmail").textContent =
     "Correo: " + user.email;
@@ -260,12 +265,14 @@ document.getElementById("openAuth").addEventListener("click", async () => {
     profileError ? "Estado: No disponible" : "Estado: " + profile.status;
 
   accountModal.classList.remove("hidden");
-});
+};
 
+// CERRAR MI CUENTA
 document.getElementById("closeAccount").onclick = () => {
   accountModal.classList.add("hidden");
 };
 
+// CERRAR SESIÓN
 document.getElementById("logoutButton").onclick = async () => {
   const { error } = await supabaseClient.auth.signOut();
 
@@ -273,5 +280,4 @@ document.getElementById("logoutButton").onclick = async () => {
     accountModal.classList.add("hidden");
     authModal.classList.add("hidden");
   }
-};
 };</script></body></html>
