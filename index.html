@@ -145,7 +145,23 @@
 
     <p id="authMessage"></p>
   </div>
-</div><script>const SUPABASE_URL = "https://ynkodyhuoxbrkrgzhojm.supabase.co";
+</div></div>
+</div>
+
+<div id="accountModal" class="auth-modal hidden">
+  <div class="auth-box">
+    <button id="closeAccount" class="auth-close">×</button>
+
+    <h2>Mi cuenta ♡</h2>
+
+    <p id="accountEmail">Correo: Cargando...</p>
+    <p id="accountStatus">Estado: Cargando...</p>
+
+    <button id="logoutButton">Cerrar sesión</button>
+  </div>
+</div>
+
+<script><script>const SUPABASE_URL = "https://ynkodyhuoxbrkrgzhojm.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_GVFpWy6LC0sDK0JKWMUatg_WOK_14lg";
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
@@ -223,4 +239,39 @@ registerTab.onclick = () => {
   message.textContent = "¡Bienvenido a LOVE.exe! ♡";
   console.log("Sesión iniciada:", data.user.id);
 });
+
+const accountModal = document.getElementById("accountModal");
+
+document.getElementById("openAuth").addEventListener("click", async () => {
+  const { data: { user }, error } = await supabaseClient.auth.getUser();
+
+  if (error || !user) return;
+
+  document.getElementById("accountEmail").textContent =
+    "Correo: " + user.email;
+
+  const { data: profile, error: profileError } = await supabaseClient
+    .from("profiles")
+    .select("status")
+    .eq("id", user.id)
+    .single();
+
+  document.getElementById("accountStatus").textContent =
+    profileError ? "Estado: No disponible" : "Estado: " + profile.status;
+
+  accountModal.classList.remove("hidden");
+});
+
+document.getElementById("closeAccount").onclick = () => {
+  accountModal.classList.add("hidden");
+};
+
+document.getElementById("logoutButton").onclick = async () => {
+  const { error } = await supabaseClient.auth.signOut();
+
+  if (!error) {
+    accountModal.classList.add("hidden");
+    authModal.classList.add("hidden");
+  }
+};
 };</script></body></html>
