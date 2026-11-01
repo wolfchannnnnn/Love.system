@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8d9eb"><title>LOVE.exe ♡</title>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8d9eb"><title>LOVE.exe ♡</title>#openAuth {
+  display: inline-block;
+  margin: 12px 0 0 8px;
+  vertical-align: middle;
+}
 <style>
 :root{--ink:#39283e;--muted:#806b84;--pink:#f8d9eb;--lav:#e8e0ff;--blue:#def4ff;--line:#ead7e7;--white:#fffaff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:system-ui,sans-serif;line-height:1.55;background:radial-gradient(circle at 10% 0,#ffe4f2,transparent 27rem),radial-gradient(circle at 100% 25%,#e9e3ff,transparent 28rem),#fff9fd}a{color:inherit;text-decoration:none}button,.btn{font:inherit;font-weight:750;color:var(--ink);background:linear-gradient(135deg,#fff,#ffedf7);border:1px solid #e8c8de;border-radius:13px;padding:10px 14px;box-shadow:0 4px 0 #edd7e7;cursor:pointer}button:active{transform:translateY(2px);box-shadow:0 2px 0 #edd7e7}.wrap{width:min(1050px,calc(100% - 24px));margin:auto}.top{background:#39283e;color:white;text-align:center;padding:8px;font-size:.78rem;letter-spacing:.1em}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;padding:24px 0}.panel,.card,.profile{background:#ffffffdc;border:1px solid var(--line);border-radius:22px;padding:clamp(17px,3vw,27px);box-shadow:0 10px 25px #805b7915}.brand{font-weight:850;letter-spacing:.12em;color:#b05288}.logo{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--pink),var(--lav));font-size:1.3rem;margin-right:7px}h1{font-size:clamp(2.8rem,8vw,5rem);line-height:.96;letter-spacing:-.07em;margin:20px 0 12px}h1 span{color:#d66ba7}.muted{color:var(--muted)}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.pill{font-size:.78rem;padding:4px 9px;border:1px solid var(--line);border-radius:99px;background:#fff4fa}.heroSide{background:linear-gradient(145deg,#f9dced,#e8e1ff,#def4ff);display:flex;flex-direction:column;justify-content:space-between;min-height:220px}.status{background:#ffffffa8;border-radius:99px;padding:6px 10px;font-size:.8rem;width:max-content}.heroSide h2{font-size:1.8rem;line-height:1.15}nav{position:sticky;top:0;z-index:5;background:#fffaf2ed;border-block:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;gap:5px;overflow:auto;padding:8px 0;scrollbar-width:none}.nav a{white-space:nowrap;padding:8px 11px;border-radius:11px;font-weight:700;font-size:.88rem}.nav a:hover{background:#ffedf7}section{padding:23px 0;scroll-margin-top:70px}.head{margin-bottom:13px}.eyebrow{font-size:.73rem;letter-spacing:.14em;text-transform:uppercase;color:#b05288;font-weight:850}h2{margin:3px 0;font-size:clamp(1.55rem,4vw,2.1rem);letter-spacing:-.04em}h3{margin:0 0 5px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{padding:18px}.icon{font-size:1.65rem}.card p,.profile p{font-size:.92rem;color:var(--muted)}.pink{background:linear-gradient(135deg,#fff,#fff0f7)}.lav{background:linear-gradient(135deg,#fff,#f0ecff)}.blue{background:linear-gradient(135deg,#fff,#e8f8ff)}.result{margin-top:10px;border:1px dashed #d9b9d5;border-radius:13px;padding:12px;background:#fff7fc;min-height:52px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.small{font-size:.84rem;padding:8px 10px}.profiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.profile{padding:17px;overflow-wrap:anywhere}.avatar{display:grid;place-items:center;width:54px;height:54px;background:linear-gradient(135deg,var(--pink),var(--lav));border-radius:17px;font-size:1.6rem;margin-bottom:9px}.role{display:inline-block;background:#fbedf6;border-radius:99px;padding:3px 8px;font-size:.76rem}.formbox{background:#fff5fb;border:1px dashed #dcbdd4;border-radius:18px;padding:15px;margin-top:13px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:.82rem;font-weight:750}input,select,textarea{width:100%;font:inherit;border:1px solid #e1cddd;border-radius:11px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:75px}.full{grid-column:1/-1}.notice{font-size:.83rem;color:var(--muted);background:#f5f0ff;padding:11px;border-radius:12px}.hidden{display:none!important}footer{text-align:center;padding:30px 0 42px;color:var(--muted);font-size:.84rem}@media(max-width:700px){.hero{grid-template-columns:1fr}.grid,.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.grid,.profiles,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding-top:14px}.heroSide{min-height:180px}}
 /* VENTANA EMERGENTE LOVE.exe */
@@ -109,7 +113,35 @@
 <section id="alarms"><div class="head"><div class="eyebrow">05 / message lab</div><h2>Love Alarm ♡ / Mensajes</h2></div><div class="card"><p class="muted">Genera un mensaje amable, cópialo y envíalo por el canal adecuado.</p><div class="formgrid"><div class="field"><label for="alarmType">Tipo de mensaje</label><select id="alarmType"><option value="welcome">Bienvenida</option><option value="admire">Admiración</option><option value="thanks">Agradecimiento</option><option value="friend">Amistad</option><option value="boundary">Algo me incomodó</option></select></div><div class="field"><label for="alarmName">Nombre o apodo (opcional)</label><input id="alarmName" maxlength="28" placeholder="Ej. moonie"></div><div class="field full"><label for="alarmDetail">Detalle (opcional)</label><input id="alarmDetail" maxlength="100" placeholder="Ej. siempre haces reír al grupo"></div></div><div class="toolbar" style="margin-top:12px"><button id="makeAlarm">Crear mensaje</button><button class="small" id="copyAlarm">Copiar mensaje</button></div><div class="result" id="alarmResult" aria-live="polite">Tu mensaje aparecerá aquí ♡</div><p class="notice">Esta herramienta solo genera texto: no envía mensajes ni garantiza anonimato. Si expresas una queja, céntrate en la conducta y evita ataques personales.</p></div></section>
 <section id="reglas"><div class="head"><div class="eyebrow">06 / safe space</div><h2>Reglas para cuidar el espacio ☆</h2></div><div class="grid"><article class="card"><h3>♡ Respeto primero</h3><p>Sin insultos, acoso, discriminación ni amenazas.</p></article><article class="card"><h3>🔒 Privacidad</h3><p>No compartas capturas ni datos de alguien sin permiso.</p></article><article class="card"><h3>🫶 Límites claros</h3><p>Los mensajes no deben servir para presionar, exponer o humillar.</p></article></div></section>
 </main><footer class="wrap">LOVE.exe ♡ made with care · <span id="year"></span><br>Una comunidad bonita se construye entre todos.</footer>
-<script>
+<!-- VENTANA DE INICIO DE SESIÓN -->
+<div id="authModal" class="auth-modal hidden">
+  <div class="auth-box">
+    <button id="closeAuth" class="auth-close">×</button>
+
+    <h2>LOVE.exe ♡</h2>
+    <p>¡Qué bueno tenerte aquí!</p>
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="auth-tab active">Iniciar sesión</button>
+      <button id="registerTab" class="auth-tab">Registrarse</button>
+    </div>
+
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+      <input type="password" id="loginPassword" placeholder="Contraseña" required>
+      <button type="submit">Entrar ♡</button>
+    </form>
+
+    <form id="registerForm" class="hidden">
+      <input type="text" id="inviteCode" placeholder="Código de invitación" required>
+      <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+      <input type="password" id="registerPassword" placeholder="Contraseña" minlength="8" required>
+      <button type="submit">Solicitar acceso ♡</button>
+    </form>
+
+    <p id="authMessage"></p>
+  </div>
+</div><script>
 /* Pega tu invitación real de WhatsApp entre las comillas. */
 const WHATSAPP_INVITE="REEMPLAZA_ESTE_ENLACE";
 const $=id=>document.getElementById(id),pick=a=>a[Math.floor(Math.random()*a.length)];
@@ -148,32 +180,4 @@ registerTab.onclick = () => {
   loginTab.classList.remove("active");
 };document.getElementById("openAuth").onclick = () => {
   authModal.classList.remove("hidden");
-};</script><!-- VENTANA DE INICIO DE SESIÓN -->
-<div id="authModal" class="auth-modal hidden">
-  <div class="auth-box">
-    <button id="closeAuth" class="auth-close">×</button>
-
-    <h2>LOVE.exe ♡</h2>
-    <p>¡Qué bueno tenerte aquí!</p>
-
-    <div class="auth-tabs">
-      <button id="loginTab" class="auth-tab active">Iniciar sesión</button>
-      <button id="registerTab" class="auth-tab">Registrarse</button>
-    </div>
-
-    <form id="loginForm">
-      <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
-      <input type="password" id="loginPassword" placeholder="Contraseña" required>
-      <button type="submit">Entrar ♡</button>
-    </form>
-
-    <form id="registerForm" class="hidden">
-      <input type="text" id="inviteCode" placeholder="Código de invitación" required>
-      <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
-      <input type="password" id="registerPassword" placeholder="Contraseña" minlength="8" required>
-      <button type="submit">Solicitar acceso ♡</button>
-    </form>
-
-    <p id="authMessage"></p>
-  </div>
-</div></body></html>
+};</script></body></html>
