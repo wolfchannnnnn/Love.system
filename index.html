@@ -261,8 +261,14 @@ document.getElementById("openAuth").onclick = async () => {
     .eq("id", user.id)
     .single();
 
+  if (profileError) {
+  console.log("Error al consultar perfil:", profileError);
   document.getElementById("accountStatus").textContent =
-    profileError ? "Estado: No disponible" : "Estado: " + profile.status;
+    "Error: " + profileError.code;
+} else {
+  document.getElementById("accountStatus").textContent =
+    "Estado: " + profile.status;
+  }
 
   accountModal.classList.remove("hidden");
 };
