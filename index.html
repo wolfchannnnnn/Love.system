@@ -262,11 +262,12 @@ document.getElementById("openAuth").onclick = async () => {
     .single();
 
   if (profileError) {
-  console.log("Error al consultar perfil:", profileError);
-  console.log("Detalle:", profileError.message);
   document.getElementById("accountStatus").textContent =
-    "Error: " + profileError.code;
+    "Error: " + profileError.message;
 } else {
+  document.getElementById("accountStatus").textContent =
+    "Estado: " + profile.status;
+  }else{
   document.getElementById("accountStatus").textContent =
     "Estado: " + profile.status;
   }
