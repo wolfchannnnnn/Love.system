@@ -115,7 +115,36 @@
 <section id="actividades"><div class="head"><div class="eyebrow">04 / playroom</div><h2>Zona de actividades ✦</h2></div><div class="grid">
 <article class="card lav"><div class="icon">🎭</div><h3>Reto creativo</h3><p>Una dinámica para el grupo.</p><button class="small" id="challengeBtn">Sortear reto</button><div id="challengeResult" class="result">¿Listos para jugar?</div></article><article class="card blue"><div class="icon">🧩</div><h3>Rompehielos</h3><p>Para conversar con alguien nuevo.</p><button class="small" id="iceBtn">Dame una idea</button><div id="iceResult" class="result">Empieza con algo simple.</div></article><article class="card pink"><div class="icon">🏆</div><h3>Mini reconocimiento</h3><p>Dedica una frase bonita a alguien.</p><button class="small" id="complimentBtn">Crear frase</button><div id="complimentResult" class="result">Un detalle puede alegrar el día.</div></article></div></section>
 <section id="alarms"><div class="head"><div class="eyebrow">05 / message lab</div><h2>Love Alarm ♡ / Mensajes</h2></div><div class="card"><p class="muted">Genera un mensaje amable, cópialo y envíalo por el canal adecuado.</p><div class="formgrid"><div class="field"><label for="alarmType">Tipo de mensaje</label><select id="alarmType"><option value="welcome">Bienvenida</option><option value="admire">Admiración</option><option value="thanks">Agradecimiento</option><option value="friend">Amistad</option><option value="boundary">Algo me incomodó</option></select></div><div class="field"><label for="alarmName">Nombre o apodo (opcional)</label><input id="alarmName" maxlength="28" placeholder="Ej. moonie"></div><div class="field full"><label for="alarmDetail">Detalle (opcional)</label><input id="alarmDetail" maxlength="100" placeholder="Ej. siempre haces reír al grupo"></div></div><div class="toolbar" style="margin-top:12px"><button id="makeAlarm">Crear mensaje</button><button class="small" id="copyAlarm">Copiar mensaje</button></div><div class="result" id="alarmResult" aria-live="polite">Tu mensaje aparecerá aquí ♡</div><p class="notice">Esta herramienta solo genera texto: no envía mensajes ni garantiza anonimato. Si expresas una queja, céntrate en la conducta y evita ataques personales.</p></div></section>
-<section id="reglas"><div class="head"><div class="eyebrow">06 / safe space</div><h2>Reglas para cuidar el espacio ☆</h2></div><div class="grid"><article class="card"><h3>♡ Respeto primero</h3><p>Sin insultos, acoso, discriminación ni amenazas.</p></article><article class="card"><h3>🔒 Privacidad</h3><p>No compartas capturas ni datos de alguien sin permiso.</p></article><article class="card"><h3>🫶 Límites claros</h3><p>Los mensajes no deben servir para presionar, exponer o humillar.</p></article></div></section>
+<section id="adminPanel" class="hidden">
+  <div class="head">
+    <div class="eyebrow">07 / administration</div>
+    <h2>Panel de administración ♡</h2>
+    <p class="muted">Gestiona la comunidad de LOVE.exe.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card pink">
+      <div class="icon">📩</div>
+      <h3>Solicitudes</h3>
+      <p>Revisa las solicitudes de nuevos miembros.</p>
+      <div class="result">Próximamente...</div>
+    </article>
+
+    <article class="card lav">
+      <div class="icon">👥</div>
+      <h3>Miembros</h3>
+      <p>Administra los integrantes de la comunidad.</p>
+      <div class="result">Próximamente...</div>
+    </article>
+
+    <article class="card blue">
+      <div class="icon">🎟️</div>
+      <h3>Invitaciones</h3>
+      <p>Gestiona los códigos de acceso.</p>
+      <div class="result">Próximamente...</div>
+    </article>
+  </div>
+</section><section id="reglas"><div class="head"><div class="eyebrow">06 / safe space</div><h2>Reglas para cuidar el espacio ☆</h2></div><div class="grid"><article class="card"><h3>♡ Respeto primero</h3><p>Sin insultos, acoso, discriminación ni amenazas.</p></article><article class="card"><h3>🔒 Privacidad</h3><p>No compartas capturas ni datos de alguien sin permiso.</p></article><article class="card"><h3>🫶 Límites claros</h3><p>Los mensajes no deben servir para presionar, exponer o humillar.</p></article></div></section>
 </main><footer class="wrap">LOVE.exe ♡ made with care · <span id="year"></span><br>Una comunidad bonita se construye entre todos.</footer>
 <!-- VENTANA DE INICIO DE SESIÓN -->
 <div id="authModal" class="auth-modal hidden">
