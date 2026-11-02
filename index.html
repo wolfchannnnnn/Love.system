@@ -285,18 +285,27 @@ document.getElementById("openAuth").onclick = async () => {
     "Correo: " + user.email;
 
   const { data: profile, error: profileError } = await supabaseClient
-    .from("profiles")
-    .select("status")
-    .eq("id", user.id)
-    .single();
+.from("profiles")
+.select("status, role")
+.eq("id", user.id)
+.single();
 
-    if (profileError) {
-    document.getElementById("accountStatus").textContent =
-      "Error: " + profileError.message;
+if (profileError) {
+  document.getElementById("accountStatus").textContent =
+    "Error: " + profileError.message;
+
+  document.getElementById("adminPanel").classList.add("hidden");
+
+} else {
+  document.getElementById("accountStatus").textContent =
+    "Estado: " + profile.status;
+
+  if (profile.status === "approved" && profile.role === "admin") {
+    document.getElementById("adminPanel").classList.remove("hidden");
   } else {
-    document.getElementById("accountStatus").textContent =
-      "Estado: " + profile.status;
-    }
+    document.getElementById("adminPanel").classList.add("hidden");
+  }
+}
 
   accountModal.classList.remove("hidden");
 };
