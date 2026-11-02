@@ -226,7 +226,32 @@ const challenges=["Crea una playlist de 3 canciones con la misma vibra.","Recomi
 $("missionBtn").onclick=()=>$("missionResult").textContent=pick(missions);$("questionBtn").onclick=()=>$("questionResult").textContent=pick(questions);$("challengeBtn").onclick=()=>$("challengeResult").textContent=pick(challenges);$("iceBtn").onclick=()=>$("iceResult").textContent=pick(icebreakers);$("complimentBtn").onclick=()=>$("complimentResult").textContent=pick(compliments);$("year").textContent=new Date().getFullYear();
 if(WHATSAPP_INVITE.startsWith("https://chat.whatsapp.com/")){$("joinButton").href=WHATSAPP_INVITE;$("joinButton").target="_blank";$("joinButton").rel="noopener";$("joinHint").textContent="Invitación configurada ♡";}else{$("joinButton").onclick=e=>{e.preventDefault();alert("Edita WHATSAPP_INVITE en index.html y pega tu enlace de invitación de WhatsApp.");};}
 const key="loveExeProfilesV2";let profiles=[];try{profiles=JSON.parse(localStorage.getItem(key)||"[]");if(!Array.isArray(profiles))profiles=[]}catch(e){profiles=[]}
-function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function esc(s){document.getElementById("loadRequests").onclick = async () => {
+  const list = document.getElementById("requestsList");
+  list.textContent = "Cargando solicitudes...";
+
+  const { data, error } = await supabaseClient
+    .from("profiles")
+    .select("id, nickname, description, avatar_url, status")
+    .eq("status", "pending");
+
+  if (error) {
+    list.textContent = "Error: " + error.message;
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    list.textContent = "No hay solicitudes pendientes ♡";
+    return;
+  }
+
+  list.innerHTML = data.map(profile => `
+    <div class="request-item">
+      <strong>${esc(profile.nickname || "Sin apodo")}</strong>
+      <p>${esc(profile.description || "")}</p>
+    </div>
+  `).join("");
+};return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function render(){const root=$("profiles");if(!profiles.length){root.innerHTML='<div class="card" style="grid-column:1/-1;text-align:center"><div class="icon">🪽</div><h3>Tu comunidad empieza aquí</h3><p>Añade los primeros perfiles del team.</p></div>';return}root.innerHTML=profiles.map((p,i)=>`<article class="profile"><div class="avatar">${esc(p.emoji)}</div><h3>${esc(p.nickname)}</h3><span class="role">${esc(p.role)}</span>${p.pronouns?`<p>${esc(p.pronouns)}</p>`:""}<p>${esc(p.likes||"Un miembro de LOVE.exe ♡")}</p><button class="small" data-remove="${i}">Eliminar</button></article>`).join("");root.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{if(confirm("¿Eliminar este perfil de este navegador?")){profiles.splice(+b.dataset.remove,1);save()}})}
 function save(){try{localStorage.setItem(key,JSON.stringify(profiles))}catch(e){}render()}
 $("toggleProfile").onclick=()=>$("profileForm").classList.toggle("hidden");$("cancelProfile").onclick=()=>{$("profileForm").reset();$("profileForm").classList.add("hidden")};$("profileForm").onsubmit=e=>{e.preventDefault();profiles.push({nickname:$("nickname").value.trim(),emoji:$("emoji").value,role:$("memberRole").value,pronouns:$("pronouns").value.trim(),likes:$("likes").value.trim()});save();$("profileForm").reset();$("profileForm").classList.add("hidden")};render();
